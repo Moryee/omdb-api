@@ -59,3 +59,7 @@ target/
 # env prod variables
 .env.prod
 .env.prod.db
+
+# pipenv
+Pipfile
+Pipfile.lock
