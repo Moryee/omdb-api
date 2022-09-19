@@ -6,4 +6,4 @@ class Episode(models.Model):
     title = models.CharField(max_length=100, blank=False, default='')
     released = models.DateField()
     episode = models.IntegerField(blank=False)
-    rating = models.FloatField()
+    rating = models.FloatField(blank=True, null=True)
