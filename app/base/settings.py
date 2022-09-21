@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+
+    # local apps
     'series',
+    'users',
 ]
 
 REST_FRAMEWORK = {
@@ -77,6 +81,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'base.wsgi.application'
+
+AUTH_PROFILE_MODULE = 'users.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # Database
