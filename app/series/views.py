@@ -6,12 +6,13 @@ from django_filters.rest_framework import DjangoFilterBackend, FilterSet, Number
 
 from series.models import Episode
 from series.serializers import EpisodeSerializer
+from series.tasks import retrieve_episodes
 
 
 class EpisodeFilter(FilterSet):
     min_rating = NumberFilter(field_name='rating', lookup_expr='gte')
     max_rating = NumberFilter(field_name='rating', lookup_expr='lte')
-    
+
     class Meta:
         model = Episode
         fields = ['rating']
@@ -25,3 +26,7 @@ class EpisodeViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_class = EpisodeFilter
     search_fields = ['title']
     ordering_filter = '__all__'
+    
+    def list(self, request, *args, **kwargs):
+        retrieve_episodes.delay()
+        return super().list(request, *args, **kwargs)
