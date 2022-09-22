@@ -18,6 +18,19 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
             - POSTGRES_DB=omdb_api_dev
+    redis:
+        image: redis:alpine
+    celery:
+        restart: always
+        build: ./app
+        command: celery -A base worker -l info
+        volumes:
+            - ./app/:/usr/src/app/
+        env_file:
+            - ./.env.dev
+        depends_on:
+            - web
+            - redis
 
 volumes:
     postgres_data:
