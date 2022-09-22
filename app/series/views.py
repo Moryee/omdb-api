@@ -15,7 +15,7 @@ class EpisodeFilter(FilterSet):
 
     class Meta:
         model = Episode
-        fields = ['rating']
+        fields = ['rating', 'season']
 
 
 class EpisodeViewSet(viewsets.ReadOnlyModelViewSet):
