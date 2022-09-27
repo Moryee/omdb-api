@@ -14,15 +14,15 @@ def retrieve_episodes():
 
     total_seasons = int(
         requests.get(f'http://www.omdbapi.com/?t=Game+Of+Thrones&apikey={key}')
-            .json()['totalSeasons']
+        .json()['totalSeasons']
     )
 
     count_episodes_last_season = len(
         requests.get(f'http://www.omdbapi.com/?t=Game+Of+Thrones&season={total_seasons}&apikey={key}')
-            .json()['Episodes']
+        .json()['Episodes']
     )
 
-    if Episode.objects.filter(season=total_seasons).count() == count_episodes_last_season: # ??
+    if Episode.objects.filter(season=total_seasons).count() == count_episodes_last_season:  # ??
         return 'Database already up to date'
 
     for i in range(total_seasons):
