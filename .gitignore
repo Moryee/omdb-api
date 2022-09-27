@@ -63,3 +63,6 @@ target/
 # pipenv
 Pipfile
 Pipfile.lock
+
+# vscode settings
+.vscode

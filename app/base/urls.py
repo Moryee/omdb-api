@@ -27,6 +27,7 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('series.urls')),
+    path('api/episodes/', include('comments.urls')),
     path('users/', include('users.urls')),
 
     # jwt token management
