@@ -23,7 +23,3 @@ class EpisodeViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_class = EpisodeFilter
     search_fields = ['title']
     ordering_filter = '__all__'
-
-    def list(self, request, *args, **kwargs):
-        retrieve_episodes.delay()
-        return super().list(request, *args, **kwargs)
