@@ -29,7 +29,7 @@ If you encounted an error and you are using Windows you probably need to change 
 
 ### Folder structure
 
-Here's a folder structure for a Pandoc document:
+Here's a folder structure for project:
 
 ```
 omdb-api                                 # Root directory
