@@ -2,7 +2,7 @@ name: CI/CD
 
 on:
   push:
-    branches: [ "dev-22-ci-cd" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
